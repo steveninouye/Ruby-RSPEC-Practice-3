@@ -20,7 +20,11 @@ class String
   def caesar(shift)
     self.chars.reduce("") do |acc, curr|
       num = curr.ord + shift
-      if num < 123
+      if num < 91
+        acc + num.chr 
+      elsif num >= 91 && num <= 96
+        acc + (num-26).chr
+      elsif  num < 123
         acc + num.chr
       else
         acc + (num-26).chr
